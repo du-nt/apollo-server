@@ -3,8 +3,8 @@ import isAuth from "../../utils/checkAuth"
 export default {
   Query: {
     hello: async (_, args, ctx) => {
-      const user = await isAuth(ctx.req)
-      console.log(user)
+      // const user = await isAuth(ctx.req)
+      // console.log(user)
       return "hello man1"
     }
   },
