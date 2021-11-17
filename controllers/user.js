@@ -80,7 +80,6 @@ const login = async (data) => {
 const socialLogin = async (idToken) => {
     try {
         const decodedValue = await admin.auth().verifyIdToken(idToken)
-        await admin.auth().updateUser(decodedValue.uid, { emailVerified: true, })
 
         const query = { googleId: decodedValue.uid };
         const update = {
@@ -108,7 +107,7 @@ const socialLogin = async (idToken) => {
             refreshToken
         }
     } catch (error) {
-        throw new AuthenticationError(error.message)
+        throw new AuthenticationError("Decoding Firebase ID token failed")
     }
 
 }
