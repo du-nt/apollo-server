@@ -11,6 +11,7 @@ export default {
   Mutation: {
     register: async (_, { registerInput }, { controllers }) => await controllers.user.register(registerInput),
     login: async (_, args, { controllers }) => await controllers.user.login(args),
-    socialLogin: async (_, { idToken }, { controllers }) => await controllers.user.socialLogin(idToken)
+    socialLogin: async (_, { idToken }, { controllers }) => await controllers.user.socialLogin(idToken),
+    logout: async (_, args, { controllers }) => await controllers.user.logout()
   }
 }

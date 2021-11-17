@@ -112,4 +112,8 @@ const socialLogin = async (idToken) => {
 
 }
 
-export default { register, login, socialLogin }
+const logout = async () => {
+    return true
+}
+
+export default { register, login, socialLogin, logout }
