@@ -7,7 +7,7 @@ export default {
     },
     getMe: async (_, args, { req, controllers }) => {
       const userId = await isAuth(req)
-      return await controllers.getMe(userId)
+      return await controllers.user.getMe(userId)
     }
   },
   Mutation: {

@@ -8,6 +8,7 @@ const isAuth = async (req) => {
         if (!authHeader) throw new AuthenticationError('Authorization header must be provided');
 
         const token = authHeader.split(" ")[1];
+        console.log(token)
         const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET)
 
         if (!decoded) throw new AuthenticationError('Invalid/Expired token')
