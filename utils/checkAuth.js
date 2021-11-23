@@ -1,8 +1,6 @@
 import { AuthenticationError } from 'apollo-server-express';
 import jwt from 'jsonwebtoken';
 
-import User from '../models/User';
-
 const isAuth = async (req) => {
     try {
         const authHeader = req.get("Authorization")
@@ -14,9 +12,7 @@ const isAuth = async (req) => {
 
         if (!decoded) throw new AuthenticationError('Invalid/Expired token')
 
-        const user = await User.findOne({ _id: decoded.id })
-
-        return { user: "hello" }
+        return decoded.id
     } catch (error) {
         throw new AuthenticationError(error.message)
     }

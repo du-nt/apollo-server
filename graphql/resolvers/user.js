@@ -3,9 +3,11 @@ import isAuth from "../../utils/checkAuth"
 export default {
   Query: {
     hello: async (_, args, ctx) => {
-      // const user = await isAuth(ctx.req)
-      // console.log(user)
-      return "hello man1"
+      return "hello world"
+    },
+    getMe: async (_, args, { req, controllers }) => {
+      const userId = await isAuth(req)
+      return await controllers.getMe(userId)
     }
   },
   Mutation: {

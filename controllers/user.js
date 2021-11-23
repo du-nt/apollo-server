@@ -116,4 +116,15 @@ const logout = async () => {
     return true
 }
 
-export default { register, login, socialLogin, logout }
+const getMe = async (_id) => {
+    try {
+        const user = await User.findOne({ _id })
+        return {
+            ...user._doc,
+            password: ''
+        }
+    } catch (error) {
+    }
+}
+
+export default { register, login, socialLogin, logout, getMe }
