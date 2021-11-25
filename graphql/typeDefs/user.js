@@ -4,7 +4,7 @@ export default gql`
 type Query {
     hello: String
     getMe: User!
-    refreshAccessToken: Token!
+    refreshAccessToken(refreshToken: String!): Token!
 }
 input RegisterInput {
     displayName: String
