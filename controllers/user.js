@@ -141,6 +141,7 @@ const refreshAccessToken = async (token) => {
 
         return { accessToken, refreshToken }
     } catch (error) {
+        console.log(error)
         throw new AuthenticationError(error.message)
     }
 }
