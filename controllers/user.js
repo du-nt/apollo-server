@@ -127,4 +127,22 @@ const getMe = async (_id) => {
     }
 }
 
-export default { register, login, socialLogin, logout, getMe }
+const refreshAccessToken = async (token) => {
+    try {
+        console.log(token)
+        const decoded = jwt.verify(token, process.env.REFRESH_TOKEN_SECRET)
+        if (!decoded) throw new AuthenticationError('Invalid/Expired refresh token')
+
+        const user = await User.findOne({ _id: decoded.id })
+        if (!user) throw new AuthenticationError('This account does not exist')
+
+        const accessToken = generateToken({ id: user._id })
+        const refreshToken = generateRefreshToken({ id: user._id })
+
+        return { accessToken, refreshToken }
+    } catch (error) {
+        throw new AuthenticationError(error.message)
+    }
+}
+
+export default { register, login, socialLogin, logout, getMe, refreshAccessToken }

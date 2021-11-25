@@ -4,12 +4,17 @@ export default gql`
 type Query {
     hello: String
     getMe: User!
+    refreshAccessToken: Token!
 }
 input RegisterInput {
     displayName: String
     email: String!
     password: String!
     confirmPassword: String!
+}
+type Token {
+    accessToken: String!
+    refreshToken: String!
 }
 type User {
     _id: ID!

@@ -8,7 +8,8 @@ export default {
     getMe: async (_, args, { req, controllers }) => {
       const userId = await isAuth(req)
       return await controllers.user.getMe(userId)
-    }
+    },
+    refreshAccessToken: async (_, { refreshToken }, { controllers }) => await controllers.user.refreshAccessToken(refreshToken)
   },
   Mutation: {
     register: async (_, { registerInput }, { controllers }) => await controllers.user.register(registerInput),
