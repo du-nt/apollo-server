@@ -1,4 +1,5 @@
 import { UserInputError, AuthenticationError } from "apollo-server-express"
+import jwt from 'jsonwebtoken';
 
 import User from "../models/User";
 import { generateToken, generateRefreshToken } from "../utils/generateToken";
