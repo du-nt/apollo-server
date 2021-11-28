@@ -128,9 +128,8 @@ const getMe = async (_id) => {
     }
 }
 
-const refreshAccessToken = async (token) => {
+const renewToken = async (token) => {
     try {
-        console.log(token)
         const decoded = jwt.verify(token, process.env.REFRESH_TOKEN_SECRET)
         if (!decoded) throw new AuthenticationError('Invalid/Expired refresh token')
 
@@ -147,4 +146,4 @@ const refreshAccessToken = async (token) => {
     }
 }
 
-export default { register, login, socialLogin, logout, getMe, refreshAccessToken }
+export default { register, login, socialLogin, logout, getMe, renewToken }
