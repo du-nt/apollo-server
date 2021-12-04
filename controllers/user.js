@@ -7,8 +7,8 @@ import { validateRegisterInput, validateLoginInput } from "../utils/validators"
 import admin from '../firebase-config'
 
 const register = async (registerInput) => {
+    console.log(registerInput)
     try {
-        console.log(registerInput)
         const { isValid, errors } = validateRegisterInput(registerInput);
 
         if (!isValid) {
