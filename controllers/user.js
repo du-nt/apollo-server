@@ -32,6 +32,7 @@ const register = async (registerInput) => {
 
         return newUser
     } catch (err) {
+        console.log(err)
         throw new UserInputError(err.message, { ...err.extensions });
     }
 };
