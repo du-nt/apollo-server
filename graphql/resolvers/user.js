@@ -12,10 +12,7 @@ export default {
     renewToken: async (_, { token }, { controllers }) => await controllers.user.renewToken(token)
   },
   Mutation: {
-    register: async (_, { registerInput }, { controllers }) => {
-      console.log(registerInput)
-      return await controllers.user.register(registerInput)
-    },
+    register: async (_, args, { controllers }) => await controllers.user.register(args),
     login: async (_, args, { controllers }) => await controllers.user.login(args),
     socialLogin: async (_, { idToken }, { controllers }) => await controllers.user.socialLogin(idToken),
     logout: async (_, args, { controllers }) => await controllers.user.logout()

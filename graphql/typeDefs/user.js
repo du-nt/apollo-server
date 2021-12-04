@@ -6,12 +6,6 @@ type Query {
     getMe: User!
     renewToken(token: String!): Token!
 }
-input RegisterInput {
-    displayName: String
-    email: String!
-    password: String!
-    confirmPassword: String!
-}
 type Token {
     accessToken: String!
     refreshToken: String!
@@ -27,7 +21,11 @@ type AuthUser {
     refreshToken: String!
 }
 type Mutation {
-    register ( registerInput : RegisterInput): User!
+    register (
+        displayName: String,
+        email: String!,
+        password: String!,
+        confirmPassword: String!): User!
     login(email: String!, password: String!): AuthUser!
     socialLogin (idToken: String!): AuthUser!
     logout: Boolean!
