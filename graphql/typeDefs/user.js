@@ -20,6 +20,7 @@ type User {
     _id: ID!
     displayName: String!
     email: String!
+    password: String!
 }
 type AuthUser {
     user: User!

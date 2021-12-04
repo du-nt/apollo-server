@@ -29,9 +29,11 @@ const register = async (registerInput) => {
         });
         await newUser.save();
 
-        return newUser
+        return {
+            ...user._doc,
+            password: ''
+        }
     } catch (err) {
-        console.log(err)
         throw new UserInputError(err.message, { ...err.extensions });
     }
 };
