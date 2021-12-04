@@ -8,6 +8,7 @@ import admin from '../firebase-config'
 
 const register = async (registerInput) => {
     try {
+        console.log(registerInput)
         const { isValid, errors } = validateRegisterInput(registerInput);
 
         if (!isValid) {
