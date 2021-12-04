@@ -30,7 +30,7 @@ const register = async (registerInput) => {
         await newUser.save();
 
         return {
-            ...user._doc,
+            ...newUser._doc,
             password: ''
         }
     } catch (err) {
