@@ -3,7 +3,7 @@ import isAuth from "../../utils/checkAuth"
 export default {
   Query: {
     hello: async (_, args, ctx) => {
-      return "hello world"
+      return "hello man"
     },
     getMe: async (_, args, { req, controllers }) => {
       const userId = await isAuth(req)
